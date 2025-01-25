@@ -26,6 +26,7 @@ public class BenchmarkGraphSets {
             "random30",
             "random35",
             "random40",
+            "custom",
         };
     }
     
@@ -589,6 +590,12 @@ public class BenchmarkGraphSets {
                 "random512-10-3",
                 "random512-10-4",
                 "random512-10-0",
+            };
+            case "custom": return new String[] {
+                "AR0500SR",
+                "maze512-2-5",
+                "Milan_1_1024",
+                "random512-20-0",
             };
         };
         return null;

@@ -41,6 +41,11 @@ import uiandio.BenchmarkGraphSets;
 import uiandio.FileIO;
 import uiandio.GraphImporter;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
 public class AlgoTest {
     private static FileIO io;
     private static boolean writeToFile = true;
@@ -63,14 +68,13 @@ public class AlgoTest {
 
         String[] algoNames = new String[]{
             // Define algorithms to test here
-            "Anya16",
-            "BasicThetaStar",
+            //"BasicThetaStar",
+            "AStar Octile",
         };
 
         String[] mapSetNames = new String[]{
             // Define the map sets to test on here
-            "benchmarks",
-            "automatadcmazes",
+            "custom",
         };
         
         for (int i=0; i<algoNames.length; ++i) {
@@ -312,6 +316,11 @@ public class AlgoTest {
             // testOnBenchmarkMapSet("dao", algo, testFunction_single);
             testOnBenchmarkMapSet("sc1", algo, testFunction_single);
             testOnBenchmarkMapSet("wc3maps512", algo, testFunction_single);
+            break;
+        }
+
+        case "custom": {
+            testOnBenchmarkMapSet("custom", algo, testFunction_single);
             break;
         }
 
@@ -637,12 +646,31 @@ public class AlgoTest {
 
                 sum += testResult.time;
                 sumSquare += testResult.time * testResult.time;
-                totalPathLength += testResult.pathLength / problem.shortestPath;
+                if (problem.shortestPath < 1e-6) {
+                    if (testResult.pathLength - problem.shortestPath > -1e-6 && testResult.pathLength - problem.shortestPath < 1e-6) {
+                        totalPathLength += testResult.pathLength;
+                    }
+                    else {
+                        totalPathLength += testResult.pathLength / problem.shortestPath;
+                    }   
+                }
+                else {
+                    totalPathLength += testResult.pathLength / problem.shortestPath;
+                }
+                
                 totalTautPaths += (testResult.isTaut ? 1 : 0);
                 totalOptimalPaths += (Utility.isOptimal(testResult.pathLength, problem.shortestPath) ? 1 : 0);
 
                 nResults++;
                 TimeCounter.iterations += nTrials * sampleSize;
+
+                String text = String.valueOf(testResult.time) + " " + String.valueOf(testResult.pathLength) + '\n';
+                try {
+                    Files.write(Paths.get("/home/ivan/Desktop/heuristic_methods/project/Any-angle-pathfinding-benchmark/theta_star/testResults/a_star_time_length.txt"), text.getBytes(), StandardOpenOption.APPEND);
+                }
+                catch(IOException e) {
+                    System.out.println(e);
+                }
             }
             //TimeCounter.printAverage();
             println(TimeCounter.getPrintAverageString());

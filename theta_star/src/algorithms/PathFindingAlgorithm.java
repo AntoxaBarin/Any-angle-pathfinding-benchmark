@@ -32,6 +32,7 @@ public abstract class PathFindingAlgorithm {
     protected final int ex;
     protected final int ey;
     
+    protected int expandedVerticesCount = 0;
     private int ticketNumber = -1;
     
     private boolean recordingMode;
@@ -159,6 +160,10 @@ public abstract class PathFindingAlgorithm {
     protected int getSize() {
         if (usingStaticMemory) return Memory.size();
         else return parent.length;
+    }
+
+    public int getExpandedVerticesCount() {
+        return expandedVerticesCount;
     }
     
     protected List<SnapshotItem> computeSearchSnapshot() {

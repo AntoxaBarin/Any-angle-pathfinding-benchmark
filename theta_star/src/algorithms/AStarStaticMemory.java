@@ -56,7 +56,8 @@ public class AStarStaticMemory extends PathFindingAlgorithm {
         float lastDist = -1;
         while (!pq.isEmpty()) {
             float dist = pq.getMinValue();
-            
+            expandedVerticesCount++;
+
             int current = pq.popMinIndex();
             
             //if (Math.abs(dist - lastDist) > 0.01f) { maybeSaveSearchSnapshot(); lastDist = dist;}
@@ -84,6 +85,13 @@ public class AStarStaticMemory extends PathFindingAlgorithm {
 
             //maybeSaveSearchSnapshot();
         }
+        // String text = String.valueOf(expandedVerticesCount) + '\n';
+        // try {
+        //     Files.write(Paths.get("/home/ivan/Desktop/heuristic_methods/project/Any-angle-pathfinding-benchmark/theta_star/testResults/theta_star_expandedVertices.txt"), text.getBytes(), StandardOpenOption.APPEND);
+        // }
+        // catch(IOException e) {
+        //     System.out.println(e);
+        // }
         
         maybePostSmooth();
     }
