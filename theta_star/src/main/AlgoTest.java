@@ -666,7 +666,7 @@ public class AlgoTest {
 
                 String text = String.valueOf(testResult.time) + " " + String.valueOf(testResult.pathLength) + '\n';
                 try {
-                    Files.write(Paths.get("/home/ivan/Desktop/heuristic_methods/project/Any-angle-pathfinding-benchmark/theta_star/testResults/a_star_time_length.txt"), text.getBytes(), StandardOpenOption.APPEND);
+                    Files.write(Paths.get("path/to/resultDirectory"), text.getBytes(), StandardOpenOption.APPEND);
                 }
                 catch(IOException e) {
                     System.out.println(e);
