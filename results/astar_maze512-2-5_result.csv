@@ -1,4 +1,4 @@
-exp;alg;wallt_micro;runt_micro;expanded;generated;heapops;start;target;gridcost;realcost;map;
+exp;alg;time;runt_micro;expanded;generated;heapops;start;target;gridcost;length;map;
 0;AStar;519047;156069;166801;1000903;394003;(410,37);(13,340);3836.26110992;3343.0693148374557;maze512-2-5.map;
 1;AStar;34706;34700;41331;247894;98215;(471,70);(122,68);2856.09963836;2493.9128988981247;maze512-2-5.map;
 2;AStar;588656;281415;218889;1312157;519840;(230,216);(407,101);4161.05504913;3619.1597154140472;maze512-2-5.map;

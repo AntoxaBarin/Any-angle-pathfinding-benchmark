@@ -1,4 +1,4 @@
-exp;alg;wallt_micro;runt_micro;expanded;generated;heapops;start;target;gridcost;realcost;map
+exp;alg;time;runt_micro;expanded;generated;heapops;start;target;gridcost;length;map
 0;AnyaSearch;157352;49396;19069;38109;41654;(186,224);(3,312);231.30865784;208.12244312118193;random512-20-0.map
 1;AnyaSearch;269554;269547;104442;197344;228921;(436,482);(0,34);710.02142791;634.1398758498735;random512-20-0.map
 2;AnyaSearch;2376;275;243;475;677;(389,211);(431,180);58.94112549;52.75867999569438;random512-20-0.map
