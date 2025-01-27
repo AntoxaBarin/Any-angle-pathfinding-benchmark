@@ -1,4 +1,4 @@
-index;micro;successor_calls;generated;pushed;popped;pruned_post_pop;length;gridcost
+index;time;expanded;generated;pushed;popped;pruned_post_pop;length;gridcost
 0;2891.14;5027;2613;2569;2461;1;400.7631767417499;425.97265
 1;421.676;737;521;513;370;0;207.4913774852004;220.00714
 2;1448.583;2272;1329;1310;1157;2;479.1381336363166;506.58788
