@@ -4,7 +4,10 @@ import grid.GridGraph;
 import algorithms.datatypes.Memory;
 import algorithms.priorityqueue.ReusableIndirectHeap;
 
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class AStarStaticMemory extends PathFindingAlgorithm {
 
@@ -85,13 +88,13 @@ public class AStarStaticMemory extends PathFindingAlgorithm {
 
             //maybeSaveSearchSnapshot();
         }
-        // String text = String.valueOf(expandedVerticesCount) + '\n';
-        // try {
-        //     Files.write(Paths.get("/home/ivan/Desktop/heuristic_methods/project/Any-angle-pathfinding-benchmark/theta_star/testResults/theta_star_expandedVertices.txt"), text.getBytes(), StandardOpenOption.APPEND);
-        // }
-        // catch(IOException e) {
-        //     System.out.println(e);
-        // }
+        String text = String.valueOf(expandedVerticesCount) + '\n';
+        try {
+            Files.write(Paths.get("./testResults/theta_star_expanded.txt"), text.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+        }
+        catch(IOException e) {
+            System.out.println(e);
+        }
         
         maybePostSmooth();
     }

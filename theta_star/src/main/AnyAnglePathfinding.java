@@ -60,7 +60,7 @@ public class AnyAnglePathfinding {
                 Visualisation.run();
                 break;
             case 1:
-                AlgoTest.run();
+                AlgoTest.run(args[1], args[2]);
                 break;
             case 2:
                 Experiment.run();
@@ -318,7 +318,7 @@ public class AnyAnglePathfinding {
      * Choose an algorithm.
      */
     static AlgoFunction setDefaultAlgoFunction() {
-        int choice = 24; // adjust this to choose an algorithm
+        int choice = 8; // adjust this to choose an algorithm
         
         switch (choice) {
             case 1 :
