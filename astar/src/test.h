@@ -39,14 +39,14 @@ std::vector<Task> loadTasks(std::string path) {
 }
 
 int test_path_costs(std::string path) {
-  std::cout << "MAP: " << path << std::endl;
+  std::cout << "time\n";
   Stats stats_astar_heap("A* with a heap"),
         stats_astar_basic("A* (basic)");
   Graph graph;
   graph.load_ascii_map("../../maps/" + path + ".map", EDGES_OCTILE);
   std::vector<Task> tasks = loadTasks("../../tasks/" + path +".map.scen");
 
-  for (int ii = 0; ii < tasks.size(); ++ii) {
+  for (size_t ii = 0; ii < tasks.size(); ++ii) {
     Node *ss = 0, *gg = 0;
     ss = graph.node_at(tasks[ii].start_x, tasks[ii].start_y);
     gg = graph.node_at(tasks[ii].goal_x, tasks[ii].goal_y);

@@ -60,21 +60,18 @@ public class AlgoTest {
         return false;
     }
 
-    public static void run() {
+    public static void run(String algoName, String mapSetName) {
         assert pleaseTurnOffAssertions();
 
         FileIO.makeDirs(outputdir);
         System.gc(); System.gc();
 
         String[] algoNames = new String[]{
-            // Define algorithms to test here
-            //"BasicThetaStar",
-            "AStar Octile",
+            algoName
         };
 
         String[] mapSetNames = new String[]{
-            // Define the map sets to test on here
-            "custom",
+            mapSetName
         };
         
         for (int i=0; i<algoNames.length; ++i) {
@@ -643,7 +640,6 @@ public class AlgoTest {
             for (StartEndPointData problem : problems) {
                 TwoPoint tp = new TwoPoint(problem.start, problem.end);
                 TestResult testResult = testAlgorithm(gridGraph, algoFunction, tp, sampleSize, nTrials);
-
                 sum += testResult.time;
                 sumSquare += testResult.time * testResult.time;
                 if (problem.shortestPath < 1e-6) {
@@ -666,28 +662,28 @@ public class AlgoTest {
 
                 String text = String.valueOf(testResult.time) + " " + String.valueOf(testResult.pathLength) + '\n';
                 try {
-                    Files.write(Paths.get("path/to/resultDirectory"), text.getBytes(), StandardOpenOption.APPEND);
+                    Files.write(Paths.get("./testResults/theta_star_time_length.txt"), text.getBytes(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
                 }
                 catch(IOException e) {
                     System.out.println(e);
                 }
             }
             //TimeCounter.printAverage();
-            println(TimeCounter.getPrintAverageString());
+            // println(TimeCounter.getPrintAverageString());
 
-            double mean = (double) sum / nResults;
-            double secondMomentTimesN = (double) sumSquare;
-            double sampleVariance = (secondMomentTimesN - nResults * (mean * mean)) / (nResults - 1);
-            double standardDeviation = Math.sqrt(sampleVariance);
+            // double mean = (double) sum / nResults;
+            // double secondMomentTimesN = (double) sumSquare;
+            // double sampleVariance = (secondMomentTimesN - nResults * (mean * mean)) / (nResults - 1);
+            // double standardDeviation = Math.sqrt(sampleVariance);
 
-            println("Sample Size: " + sampleSize + " x " + nTrials + " trials");
-            println("Average Time: " + mean);
-            println("Standard Dev: " + standardDeviation);
-            println("Average Path Length: " + (totalPathLength / nResults));
-            println("Percentage Taut: " + (totalTautPaths / (float) nResults));
-            println("Percentage Optimal: " + (totalOptimalPaths / (float) nResults));
-            // StrictVisibilityGraphAlgorithmV2.printTimes();a=true;
-            println();
+            // println("Sample Size: " + sampleSize + " x " + nTrials + " trials");
+            // println("Average Time: " + mean);
+            // println("Standard Dev: " + standardDeviation);
+            // println("Average Path Length: " + (totalPathLength / nResults));
+            // println("Percentage Taut: " + (totalTautPaths / (float) nResults));
+            // println("Percentage Optimal: " + (totalOptimalPaths / (float) nResults));
+            // // StrictVisibilityGraphAlgorithmV2.printTimes();a=true;
+            // println();
         };
     }
 

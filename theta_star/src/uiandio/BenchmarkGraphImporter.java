@@ -12,7 +12,8 @@ import main.mazes.MazeAndTestCases;
 import main.testgen.StartEndPointData;
 
 public class BenchmarkGraphImporter {
-    private static String BENCHMARKS_PATH = "originalbenchmarks/";
+    private static String BENCHMARKS_PATH = "../tasks/";
+    private static String MAPS_PATH = "../maps/";
     
     private static String nameToMapFile(String name) {
         return name + ".map";
@@ -33,7 +34,7 @@ public class BenchmarkGraphImporter {
     }
 
     public static GridGraph loadBenchmarkMaze(String mazeName) {
-        String path = BENCHMARKS_PATH + nameToMapFile(mazeName);
+        String path = MAPS_PATH + nameToMapFile(mazeName);
         String data = readFile(path);
         int mapStart = data.indexOf("map") + 3;
         String[] headerData = data.substring(0, mapStart).split("\n");
