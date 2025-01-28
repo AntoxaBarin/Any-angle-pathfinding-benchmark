@@ -31,8 +31,14 @@ public class BasicThetaStar extends AStarStaticMemory {
             return;
         if (parent(current) != -1 && parent(current) == parent(destination)) // OPTIMISATION: [TI]
             return; // Idea: don't bother trying to relax if parents are equal. using triangle inequality.
-        if (!graph.neighbourLineOfSight(currentX, currentY, x, y))
-            return;
+        if (currentX == startx && currentY == starty) {
+            if (!graph.easyNeighbourLineOfSight(currentX, currentY, x, y))
+                return;
+        }
+        else {
+            if (!graph.neighbourLineOfSight(currentX, currentY, x, y))
+                return;
+        }
         
         if (relax(current, destination, 0)) {
             // If relaxation is done.

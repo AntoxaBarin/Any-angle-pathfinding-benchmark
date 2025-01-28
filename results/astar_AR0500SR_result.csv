@@ -1,4 +1,4 @@
-exp;alg;time;runt_micro;expanded;generated;heapops;start;target;gridcost;length;map;
+exp;alg;time;runt_micro;expanded;generated;heapops;start;target;length;length2;map;
 0;AStar;37653;37627;24696;184395;63493;(103,292);(271,178);425.97265472;421.73000979423523;AR0500SR.map;
 1;AStar;11259;4395;6447;49891;19457;(239,37);(133,203);220.00714264;219.42135381698608;AR0500SR.map;
 2;AStar;6112;6110;10338;77593;30979;(285,144);(29,219);506.58787842;501.7594473361969;AR0500SR.map;

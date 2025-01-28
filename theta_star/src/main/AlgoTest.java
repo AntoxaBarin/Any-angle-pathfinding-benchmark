@@ -321,6 +321,11 @@ public class AlgoTest {
             break;
         }
 
+        case "simple_test": {
+            testOnBenchmarkMapSet("simple_test", algo, testFunction_single);
+            break;
+        }
+
         case "benchmarksrandom": {
             testOnBenchmarkMapSet("random10", algo, testFunction_single);
             testOnBenchmarkMapSet("random20", algo, testFunction_single);

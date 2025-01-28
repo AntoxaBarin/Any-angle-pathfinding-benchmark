@@ -597,6 +597,9 @@ public class BenchmarkGraphSets {
                 "Milan_1_1024",
                 "random512-20-0",
             };
+            case "simple_test": return new String[] {
+                "test"
+            };
         };
         return null;
     }
