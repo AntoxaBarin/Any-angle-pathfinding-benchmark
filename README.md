@@ -12,6 +12,10 @@ Benchmark results are located in `results` folder.
 
 Maps: AR0500SR, Milan_1_1024, maze512-2-5, random512-20-0.
 
+AR0500SR            |  Milan_1_1024           | maze512-2-5            | random512-20-0            
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](./images/AR0500SR.png) |  ![](./images/Milan.png)  |  ![](./images/maze.png)   |  ![](./images/random.png)
+
 Maps source: https://movingai.com/benchmarks/grids.html 
 
 ## Usage
