@@ -207,6 +207,8 @@ public class GridGraph {
         int dy = y2 - y1;
         int dx = x2 - x1;
 
+        int old_x1 = x1;
+        int old_x2 = x2;
         int f = 0;
 
         int signY = 1;
@@ -231,8 +233,13 @@ public class GridGraph {
                 f += dy;
                 if (f >= dx) {
                     // System.out.println(String.format("%d %d", x1 + offsetX, y1 + offsetY));
-                    if (isBlocked(x1 + offsetX, y1 + offsetY) || (isBlockedOnField(x1 + offsetX - 1, y1 + offsetY) && isBlockedOnField(x1 + offsetX, y1 + offsetY - 1)))
+                    if (isBlocked(x1 + offsetX, y1 + offsetY))
                         return false;
+                    if ((x1 + offsetX != old_x1 || y1 + offsetY != old_x2) && (x1 + offsetX != x2 || y1 + offsetY != y2)) {
+                        if (((f % dx == 0) && isBlockedOnField(x1 + offsetX - 1, y1 + offsetY) && isBlockedOnField(x1 + offsetX, y1 + offsetY - 1))) {
+                            return false;
+                        }
+                    }
                     y1 += signY;
                     f -= dx;
                 }
@@ -248,8 +255,13 @@ public class GridGraph {
             while (y1 != y2) {
                 f += dx;
                 if (f >= dy) {
-                    if (isBlocked(x1 + offsetX, y1 + offsetY) || (isBlockedOnField(x1 + offsetX - 1, y1 + offsetY) && isBlockedOnField(x1 + offsetX, y1 + offsetY - 1)))
+                    if (isBlocked(x1 + offsetX, y1 + offsetY))
                         return false;
+                        if ((x1 + offsetX != old_x1 || y1 + offsetY != old_x2) && (x1 + offsetX != x2 || y1 + offsetY != y2)) {
+                            if (((f % dx == 0) && isBlockedOnField(x1 + offsetX - 1, y1 + offsetY) && isBlockedOnField(x1 + offsetX, y1 + offsetY - 1))) {
+                                return false;
+                            }
+                        }
                     x1 += signX;
                     f -= dy;
                 }
