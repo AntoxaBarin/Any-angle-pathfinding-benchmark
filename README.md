@@ -16,7 +16,9 @@ AR0500SR            |  Milan_1_1024           | maze512-2-5            | random5
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](./images/AR0500SR.png) |  ![](./images/Milan.png)  |  ![](./images/maze.png)   |  ![](./images/random.png)
 
-Maps source: https://movingai.com/benchmarks/grids.html 
+Every algorithm run 200 tasks on each map. The tasks selected randomly.
+
+Maps and tasks source: https://movingai.com/benchmarks/grids.html 
 
 ## Usage
 
