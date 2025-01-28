@@ -24,3 +24,4 @@ echo "random512-20-0 m-cdt done"
 echo "random512-20-0 cdt done"
 ./../polyanya/bin/scenariorunner  ./../meshes/random512-20-0_rect.mesh ./../tasks/random512-20-0.map.scen > ./../results/alternative_polyanya/polyanya_random512-20-0_result_rect.csv
 echo "random512-20-0 rec done"
+python3 ./../polyanya/prepare_data.py
