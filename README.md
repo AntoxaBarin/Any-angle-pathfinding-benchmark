@@ -4,6 +4,8 @@ Source of `theta_star` code: https://github.com/Ohohcakester/Any-Angle-Pathfindi
 
 Source of `astar` code: https://github.com/riscy/a_star_on_grids
 
+Source of `Anya` and `PolyAnya` code: https://bitbucket.org/dharabor/pathfinding/src/master/anyangle/
+
 ## Usage
 
 Benchmark results are located in `results` folder.
