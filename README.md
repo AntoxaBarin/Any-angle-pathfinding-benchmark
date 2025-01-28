@@ -1,8 +1,8 @@
 # Any-angle-pathfinding-benchmark
 
-Source of `theta_star` code: https://github.com/Ohohcakester/Any-Angle-Pathfinding 
+Source of `Theta*` code: https://github.com/Ohohcakester/Any-Angle-Pathfinding 
 
-Source of `astar` code: https://github.com/riscy/a_star_on_grids
+Source of `A*` code: https://github.com/riscy/a_star_on_grids
 
 Source of `Anya` and `PolyAnya` code: https://bitbucket.org/dharabor/pathfinding/src/master/anyangle/
 
@@ -19,7 +19,8 @@ TODO
 #### Theta*
 Run bash script to build project, run benchmarks and process data:
 ```bash
-./theta_star/run_benchmarks.sh 
+cd theta_star
+./run_benchmarks.sh 
 ```
 
 #### Anya
