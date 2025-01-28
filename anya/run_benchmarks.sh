@@ -16,3 +16,4 @@ java -cp ./../anya ScenarioRunner -ANYA ./../tasks/random512-20-0.map.scen > ./.
 echo "random512-20-0 anya done"
 java -cp ./../anya ScenarioRunner -ASTAR ./../tasks/random512-20-0.map.scen > ./../results/astar_random512-20-0_result.csv
 echo "random512-20-0 astar done"
+python3 ./../anya/prepare_data.py

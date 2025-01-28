@@ -8,3 +8,4 @@ java -cp ./../anya ScenarioRunner -ANYA ./../tasks/Milan_1_1024.map.scen > ./../
 echo "Milan_1_1024 done"
 java -cp ./../anya ScenarioRunner -ANYA ./../tasks/random512-20-0.map.scen > ./../results/alternative_anya/anya_random512-20-0_result_nopruning.csv
 echo "random512-20-0 done"
+python3 ./../anya/prepare_nopruning_data.py
