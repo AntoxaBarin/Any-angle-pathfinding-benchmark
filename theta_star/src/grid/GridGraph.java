@@ -33,6 +33,12 @@ public class GridGraph {
             tiles[sizeX*y + x] = value;
     }
     
+    public final boolean isBlockedOnField(int x, int y) {
+        if (x >= sizeX || y >= sizeY) return false;
+        if (x < 0 || y < 0) return false;
+        return tiles[sizeX*y + x];
+    }
+
     public final boolean isBlocked(int x, int y) {
         if (x >= sizeX || y >= sizeY) return true;
         if (x < 0 || y < 0) return true;
@@ -155,11 +161,18 @@ public class GridGraph {
         return min*SQRT_TWO_MINUS_ONE + max;
     }
 
+    public final boolean vertexJoint(int x, int y) {
+        return (isBlockedOnField(x - 1, y) && isBlockedOnField(x, y - 1)) || (isBlockedOnField(x, y) && isBlockedOnField(x - 1, y - 1));
+    }
+
     /**
      * Same as lineOfSight, but only works with a vertex and its 8 immediate neighbours.
      * Also (x1,y1) != (x2,y2)
-     */
+     */     
     public final boolean neighbourLineOfSight(int x1, int y1, int x2, int y2) {
+        if (vertexJoint(x1, y1) || vertexJoint(x2, y2)) {
+            return false;
+        }
         if (x1 == x2) {
             if (y1 > y2) {
                 return !isBlocked(x1,y2) || !isBlocked(x1-1,y2);
@@ -190,6 +203,7 @@ public class GridGraph {
      * @return true iff there is line-of-sight from (x1,y1) to (x2,y2).
      */
     public final boolean lineOfSight(int x1, int y1, int x2, int y2) {
+        // System.out.println();
         int dy = y2 - y1;
         int dx = x2 - x1;
 
@@ -213,9 +227,11 @@ public class GridGraph {
         
         if (dx >= dy) {
             while (x1 != x2) {
+                // System.out.println(f);
                 f += dy;
                 if (f >= dx) {
-                    if (isBlocked(x1 + offsetX, y1 + offsetY))
+                    // System.out.println(String.format("%d %d", x1 + offsetX, y1 + offsetY));
+                    if (isBlocked(x1 + offsetX, y1 + offsetY) || (isBlockedOnField(x1 + offsetX - 1, y1 + offsetY) && isBlockedOnField(x1 + offsetX, y1 + offsetY - 1)))
                         return false;
                     y1 += signY;
                     f -= dx;
@@ -232,7 +248,7 @@ public class GridGraph {
             while (y1 != y2) {
                 f += dx;
                 if (f >= dy) {
-                    if (isBlocked(x1 + offsetX, y1 + offsetY))
+                    if (isBlocked(x1 + offsetX, y1 + offsetY) || (isBlockedOnField(x1 + offsetX - 1, y1 + offsetY) && isBlockedOnField(x1 + offsetX, y1 + offsetY - 1)))
                         return false;
                     x1 += signX;
                     f -= dy;
