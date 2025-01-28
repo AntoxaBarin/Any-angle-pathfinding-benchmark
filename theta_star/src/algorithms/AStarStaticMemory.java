@@ -19,6 +19,9 @@ public class AStarStaticMemory extends PathFindingAlgorithm {
 
     protected int finish;
 
+    protected int startx;
+    protected int starty;
+
     
     public AStarStaticMemory(GridGraph graph, int sx, int sy, int ex, int ey) {
         super(graph, graph.sizeX, graph.sizeY, sx, sy, ex, ey);
@@ -55,6 +58,8 @@ public class AStarStaticMemory extends PathFindingAlgorithm {
         this.initialiseMemory(totalSize, Float.POSITIVE_INFINITY, -1, false);
         
         initialise(start);
+        startx = sx;
+        starty = sy;
         
         float lastDist = -1;
         while (!pq.isEmpty()) {
