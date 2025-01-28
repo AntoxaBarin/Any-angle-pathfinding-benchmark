@@ -21,15 +21,17 @@ Run bash script to build project, run benchmarks and process data:
 ```
 
 #### Anya
-
+Run script to get results of basic anya algorithm and java implementation of astar:
 ```bash
-TODO
+cd anya
+sh run_benchmarks.sh
 ```
 
 #### PolyAnya
-
+Run script to get results of polyanya on cdt, m-cdt and rec meshes:
 ```bash
-TODO
+cd polyanya
+sh run_benchmarks.sh
 ```
 
 ## Data visualization
