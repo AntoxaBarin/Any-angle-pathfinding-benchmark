@@ -170,7 +170,7 @@ public class GridGraph {
      * Also (x1,y1) != (x2,y2)
      */     
     public final boolean neighbourLineOfSight(int x1, int y1, int x2, int y2) {
-        if (vertexJoint(x1, y1) || vertexJoint(x2, y2)) {
+        if (vertexJoint(x1, y1)) {
             return false;
         }
         if (x1 == x2) {
