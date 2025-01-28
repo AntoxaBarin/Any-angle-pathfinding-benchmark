@@ -19,15 +19,15 @@ def remove_duplicate_lines(input_file, output_file):
 expanded_filename = 'testResults/theta_star_expanded.txt'
 remove_duplicate_lines(expanded_filename, expanded_filename)
 
-df1 = pd.read_csv(expanded_filename, header=None, names=['Expanded'])
+df1 = pd.read_csv(expanded_filename, header=None, names=['expanded'])
 df1['Index'] = df1.index
-df1 = df1[['Index', 'Expanded']]
+df1 = df1[['Index', 'expanded']]
 
 time_length_filename = 'testResults/theta_star_time_length.txt'
 
-df2 = pd.read_csv(time_length_filename, header=None, names=['Time', 'Length'], sep=' ')
+df2 = pd.read_csv(time_length_filename, header=None, names=['time', 'length'], sep=' ')
 df2['Index'] = df2.index
-df2 = df2[['Index', 'Time', 'Length']]
+df2 = df2[['Index', 'time', 'length']]
 
 merged_df = pd.merge(df1, df2, on='Index', how='inner')
 
@@ -48,7 +48,7 @@ numbers = list(range(200))
 index_df = pd.DataFrame(numbers, columns=['Numbers'], dtype=int)
 
 for map in maps:
-    df = pd.read_csv(f'theta_star_{map}_result.csv', header=None, names=['Index', 'Expanded', 'Time', 'Length'], sep=',')
+    df = pd.read_csv(f'theta_star_{map}_result.csv', header=None, names=['Index', 'expanded', 'time', 'length'], sep=',')
     df = df.drop(index=0).reset_index(drop=True)
     df['Index'] = index_df
     df.to_csv(f'theta_star_{map}_result.csv', index=False)
@@ -62,5 +62,5 @@ filenames = [
 
 for f in filenames:
     df = pd.read_csv(f)
-    df['Time'] = df['Time'] * 1000
+    df['time'] = df['time'] * 1000
     df.to_csv(f, index=False)    
