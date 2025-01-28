@@ -6,14 +6,21 @@ Source of `A*` code: https://github.com/riscy/a_star_on_grids
 
 Source of `Anya` and `PolyAnya` code: https://bitbucket.org/dharabor/pathfinding/src/master/anyangle/
 
-## Usage
+## Benchmark
 
 Benchmark results are located in `results` folder.
+
+Maps: AR0500SR, Milan_1_1024, maze512-2-5, random512-20-0.
+
+Maps source: https://movingai.com/benchmarks/grids.html 
+
+## Usage
 
 #### A*
 
 ```bash
-TODO
+cd astar/src
+./run_benchmarks.sh 
 ```
 
 #### Theta*
